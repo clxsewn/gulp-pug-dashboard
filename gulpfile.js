@@ -78,7 +78,8 @@ function watch() {
     gulp.watch(paths.scripts.src, scripts)
 }
 
-const build = gulp.series(clean, pug, gulp.parallel(styles, scripts), watch)
+const dev = gulp.series(clean, pug, gulp.parallel(styles, scripts), watch)
+const build = gulp.series(clean, pug, gulp.parallel(styles, scripts))
 
-export { clean, pug, styles, scripts, watch, build }
-export default build
+export { clean, pug, styles, scripts, watch, build, dev }
+export default dev
