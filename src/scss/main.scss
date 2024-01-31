@@ -31,6 +31,7 @@ body {
   height: 100vh;
   display: grid;
   grid-template-columns: auto 1fr;
+  background-color: #FAFBFF;
   overflow: hidden;
 }
 
@@ -40,7 +41,6 @@ button:hover {
 
 main {
   padding: 41px 20px 40px 71px;
-  background-color: #FAFBFF;
   overflow-y: scroll;
 
   @include bp.maxw(1383px) {
