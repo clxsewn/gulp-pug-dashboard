@@ -1,0 +1,17 @@
+@mixin maxw($windowWidth) {
+  @media screen and (max-width: $windowWidth) {
+    @content;
+  }
+}
+
+@mixin mobi {
+  @media screen and (max-width: 600px) {
+    @content;
+  }
+}
+
+@mixin asideMin {
+  @media screen and (max-width: 1331px) {
+    @content;
+  }
+}

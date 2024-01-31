@@ -1,0 +1,213 @@
+@use 'mixins.scss' as bp;
+
+#burger-menu {
+  position: absolute;
+  right: 30px;
+  top: 36px;
+  z-index: 100;
+
+  display: none;
+  padding: 8px;
+  justify-content: center;
+  align-items: center;
+
+  background-color: transparent;
+  border-radius: 10px;
+  border: none;
+
+  &:hover {
+    background-color: #eee;
+  }
+  
+  @include bp.mobi {
+    display: flex;
+  }
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+
+}
+
+.ui-tooltip {
+  display: none !important;
+
+  @include bp.asideMin { display: block !important; }
+  @include bp.mobi { display: none !important; }
+}
+
+aside {
+  height: 100vh;
+  padding: 36px 28px 76px;
+  background-color: #fff;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  box-shadow: 10px 0 10px 0 var(--color-shadow);
+
+  @include bp.asideMin {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  @include bp.mobi {
+    width: 100%;
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 10;
+
+    display: none;
+    padding: 36px 28px 76px;
+
+    &.show {
+      display: flex;
+    }
+  }
+
+  .aside__top {
+    .logo {
+      height: 39px;
+      margin-bottom: 53px;
+
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      .logo__text {
+        height: 39px;
+        margin-top: 1px;
+
+        @include bp.asideMin { display: none; }
+        @include bp.mobi { display: block }
+
+        .logo__name {
+          margin-right: 4px;
+
+          color: #000;
+          font-size: 26px;
+          font-weight: 600;
+          letter-spacing: 0.26px;
+        }
+
+        .logo__version {
+          color: #838383;
+          font-size: 10px;
+          letter-spacing: -0.1px;
+        }
+      }
+    }
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+    @include bp.mobi {
+      align-items: center;
+    }
+
+    .nav-item {
+      width: 250px;
+      padding: 11px 8px 11px 11px;
+
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      border-radius: 8px;
+
+      color: #9197B3;
+      text-decoration: none;
+
+      transition: background-color .1s;
+
+      @include bp.asideMin {
+        width: fit-content;
+        padding: 11px;
+      }
+
+      @include bp.mobi {
+        width: min(400px, 100%);
+        padding: 11px 8px 11px 11px;
+      }
+
+      & > svg {
+        @include bp.asideMin { display: none; }
+        @include bp.mobi { display: block }
+      }
+
+      &:not(.active):hover {
+        background-color: #f7f7f7;
+      }
+
+      &.active {
+        color: #fff;
+        background-color: #5932EA;
+
+        svg path[fill] {
+          fill: #fff;
+        }
+
+        svg path[stroke] {
+          stroke: #fff;
+        }
+      }
+
+      .nav-item__main {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 14px;
+
+        .nav-item__title {
+          font-size: 14px;
+          font-weight: 500;
+          letter-spacing: -0.14px;
+
+          @include bp.asideMin { display: none; }
+          @include bp.mobi { display: block }
+        }
+      }
+    }
+  }
+
+  footer.user {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+
+    .user__photo {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+    }
+
+    .user__info {
+      display: flex;
+      flex-direction: column;
+
+      @include bp.asideMin { display: none; }
+      @include bp.mobi { display: block }
+
+      .user__name {
+        font-size: 14px;
+        letter-spacing: 0.14px;
+        line-height: 20px;
+      }
+
+      .user__position {
+        color: #757575;
+        font-size: 12px;
+        letter-spacing: 0.12px;
+      }
+    }
+  }
+}

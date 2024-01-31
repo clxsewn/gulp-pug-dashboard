@@ -1,0 +1,39 @@
+@use 'mixins.scss' as bp;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Space+Grotesk:wght@400;600&display=swap');
+
+:root {
+  --color-shadow: rgba(226, 236, 249, .1);
+
+  --pl-wrap: 38px;
+  --pr-wrap: 40px;
+  --table-tr-gap: 24px;
+
+  @include bp.asideMin {
+    --pl-wrap: 20px;
+    --pr-wrap: 20px;
+    --table-left-padding: 20px;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: #000;
+  box-sizing: border-box;
+}
+
+#app {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  height: 100vh;
+}
+
+button:hover {
+  cursor: pointer;
+}

@@ -1,3 +1,6 @@
+include includes/mixins
+include includes/data
+
 doctype html
 html(lang="en")
     head
@@ -6,5 +9,70 @@ html(lang="en")
         meta(http-equiv="X-UA-Compatible" content="ie=edge")
         title Gulp Pug Dashboard
         link(rel="stylesheet" href="styles.min.css")
+        link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap")
+        link(rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css")
+        script(src="https://code.jquery.com/jquery-3.6.0.js")
+        script(src="https://code.jquery.com/ui/1.13.2/jquery-ui.js")
     body
-        include includes/aside.pug
+        #app
+            button#burger-menu
+                img(src="burger.svg")
+            aside
+                .aside__top
+                    header.logo
+                        img(src="/logo.svg").logo__img
+                        .logo__text
+                            span.logo__name Dashboard
+                            span.logo__version v.01
+                    nav.main-nav
+                        +navItem("dashboard.svg", "Dashboard", "#", false, true)
+                        +navItem("product.svg", "Product", "#")
+                        +navItem("customers.svg", "Customers", "#", true)
+                        +navItem("income.svg", "Income", "#")
+                        +navItem("promote.svg", "Promote", "#")
+                        +navItem("help.svg", "Help", "#")
+                footer.user
+                    img(src=loggedUser.image).user__photo
+                    .user__info
+                        .user__name=loggedUser.name
+                        .user__position=loggedUser.position
+
+            main
+                .greetings Hello #{loggedUser.name} 👋🏼,
+                .customers
+                    header
+                        .header__left
+                            h1 All Customers
+                            button Active Members
+                        label.search
+                            img(src="search-icon.svg")
+                            input(type="search" placeholder="Search")
+                    .table__wrapper
+                        table(cellspacing="0" cellpadding="0")
+                            thead
+                                tr
+                                    th Customer Name
+                                    th Company
+                                    th Phone Number
+                                    th Email
+                                    th Country
+                                    th Status
+                            tbody
+                                each tdData in tableData
+                                    +tableItem(tdData)
+                    footer
+                        .table__caption
+                            .full-caption Showing data 1 to 8 of  256K entries
+                            .short-caption 1-8 of 256K
+                        .table__pagination
+                            button.pagination__btn <
+                            button.pagination__btn.active 1
+                            button.pagination__btn 2
+                            button.pagination__btn 3
+                            button.pagination__btn 4
+                            .pagination__spacing ...
+                            button.pagination__btn 40
+                            button.pagination__btn >
+
+        script(src="script.min.js")
+        script SVGInject(document.querySelectorAll('img[src$=".svg" i]'));

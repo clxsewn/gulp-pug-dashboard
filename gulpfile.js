@@ -30,6 +30,10 @@ const paths = {
         src: "src/js/**/*.js",
         dest: 'dist/',
     },
+    images: {
+        src: "src/assets/**/*.{png,jpg,svg,webp,gif}",
+        dest: 'dist/'
+    }
 }
 
 function clean() {
@@ -66,6 +70,11 @@ function scripts() {
         .pipe(gulp.dest(paths.scripts.dest))
 }
 
+function images() {
+    return gulp.src(paths.images.src)
+        .pipe(gulp.dest(paths.images.dest))
+}
+
 function watch() {
     browsersync.init({
         server: {
@@ -76,10 +85,11 @@ function watch() {
     gulp.watch('src/**/*.pug', pug)
     gulp.watch(paths.styles.src, styles)
     gulp.watch(paths.scripts.src, scripts)
+    gulp.watch(paths.images.src, images)
 }
 
-const dev = gulp.series(clean, pug, gulp.parallel(styles, scripts), watch)
-const build = gulp.series(clean, pug, gulp.parallel(styles, scripts))
+const dev = gulp.series(clean, pug, images, gulp.parallel(styles, scripts), watch)
+const build = gulp.series(clean, pug, images, gulp.parallel(styles, scripts))
 
-export { clean, pug, styles, scripts, watch, build, dev }
+export { clean, pug, styles, scripts, images, watch, build, dev }
 export default dev

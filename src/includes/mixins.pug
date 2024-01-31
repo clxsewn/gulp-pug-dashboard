@@ -1,0 +1,19 @@
+mixin navItem(imgSrc, title, linkTo, isActive, arrowDisappear)
+    a(href=linkTo, class="nav-item", class=(typeof isActive === "undefined" || isActive === false) ? "" : "active" title=title)
+        .nav-item__main
+            img.nav-item__icon(src=imgSrc)
+            .nav-item__title=title
+        if typeof arrowDisappear === "undefined"
+            img(src="arrow.svg").nav-item__arrow
+
+mixin tableItem(data)
+    tr
+        td=data.name
+        td=data.company
+        td
+            a(href="tel:+1" + data.phone.replaceAll(' ', ''))=data.phone
+        td
+            a(href="mailto:" + data.email)=data.email
+        td=data.country
+        td
+            div(class=data.status.toLowerCase())=data.status
