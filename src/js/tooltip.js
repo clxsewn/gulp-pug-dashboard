@@ -1,5 +1,5 @@
 $(function() {
-    $("aside nav .nav-item").tooltip({
+    $(".aside__nav-item").tooltip({
         show: {
             effect: 'fade',
             delay: 0,
