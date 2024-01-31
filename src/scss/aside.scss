@@ -37,7 +37,7 @@
   @include bp.mobi { display: none !important; }
 }
 
-aside {
+aside.aside {
   height: 100vh;
   padding: 36px 28px 76px;
   background-color: #fff;
@@ -70,7 +70,7 @@ aside {
   }
 
   .aside__top {
-    .logo {
+    .aside__logo {
       height: 39px;
       margin-bottom: 53px;
 
@@ -103,7 +103,7 @@ aside {
     }
   }
 
-  nav {
+  nav.aside__nav {
     display: flex;
     flex-direction: column;
     gap: 18px;
@@ -112,7 +112,7 @@ aside {
       align-items: center;
     }
 
-    .nav-item {
+    .aside__nav-item {
       width: 250px;
       padding: 11px 8px 11px 11px;
 
@@ -143,11 +143,11 @@ aside {
         @include bp.mobi { display: block }
       }
 
-      &:not(.active):hover {
+      &:not(.aside__nav-item__active):hover {
         background-color: #f7f7f7;
       }
 
-      &.active {
+      &.aside__nav-item__active {
         color: #fff;
         background-color: #5932EA;
 

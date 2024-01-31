@@ -17,38 +17,38 @@ html(lang="en")
         #app
             button#burger-menu
                 img(src="burger.svg")
-            aside
+            aside.aside
                 .aside__top
-                    header.logo
-                        img(src="logo.svg")
+                    header.aside__logo
+                        img(src="logo.svg").logo__img
                         .logo__text
                             span.logo__name Dashboard
                             span.logo__version v.01
-                    nav.main-nav
+                    nav.aside__nav
                         +navItem("dashboard.svg", "Dashboard", "#", false, true)
                         +navItem("product.svg", "Product", "#")
                         +navItem("customers.svg", "Customers", "#", true)
                         +navItem("income.svg", "Income", "#")
                         +navItem("promote.svg", "Promote", "#")
                         +navItem("help.svg", "Help", "#")
-                footer.user
+                footer.aside-footer.user
                     img(src=loggedUser.image).user__photo
                     .user__info
                         .user__name=loggedUser.name
                         .user__position=loggedUser.position
 
-            main
+            main.main
                 .greetings Hello #{loggedUser.name} 👋🏼,
                 .customers
-                    header
-                        .header__left
+                    header.customers__header
+                        .header__text
                             h1 All Customers
                             button Active Members
-                        label.search
+                        label.customers__search
                             img(src="search-icon.svg")
                             input(type="search" placeholder="Search")
-                    .table__wrapper
-                        table(cellspacing="0" cellpadding="0")
+                    .customers__table-wrapper
+                        table(cellspacing="0" cellpadding="0").customers__table
                             thead
                                 tr
                                     th Customer Name
@@ -60,13 +60,13 @@ html(lang="en")
                             tbody
                                 each tdData in tableData
                                     +tableItem(tdData)
-                    footer
-                        .table__caption
-                            .full-caption Showing data 1 to 8 of  256K entries
-                            .short-caption 1-8 of 256K
-                        .table__pagination
+                    footer.customers__footer
+                        .customers__caption
+                            .customers__caption__full Showing data 1 to 8 of  256K entries
+                            .customers__caption__short 1-8 of 256K
+                        .customers__pagination
                             button.pagination__btn <
-                            button.pagination__btn.active 1
+                            button.pagination__btn.pagination__btn__active 1
                             button.pagination__btn 2
                             button.pagination__btn 3
                             button.pagination__btn 4
