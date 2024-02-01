@@ -6,6 +6,8 @@ $FOOTER_WRAP: 470px;
 .customers {
   width: fit-content;
   max-width: 100%;
+
+  display: table;
   position: relative;
   padding: 30px 0 40px 0;
 
@@ -17,7 +19,6 @@ $FOOTER_WRAP: 470px;
   0 -10px 10px 0 var(--color-shadow);
 
   @include bp.asideMin {
-    width: fit-content;
     margin: 0 auto;
   }
 
@@ -73,7 +74,6 @@ $FOOTER_WRAP: 470px;
       padding: 7px 8px;
 
       display: flex;
-      gap: 8px;
       align-items: center;
 
       border-radius: 10px;
@@ -83,7 +83,11 @@ $FOOTER_WRAP: 470px;
         margin: 0;
       }
 
-      input {
+      .search__icon {
+        margin-right: 8px;
+      }
+
+      .search__input {
         width: 168px;
 
         color: #B5B7C0;
@@ -141,11 +145,11 @@ $FOOTER_WRAP: 470px;
     .customers__pagination {
       display: flex;
       align-items: center;
-      gap: 11px;
 
       .pagination__btn {
         width: 26px;
         height: 24px;
+        margin-right: 11px;
 
         display: flex;
         justify-content: center;
@@ -158,6 +162,10 @@ $FOOTER_WRAP: 470px;
         color: #404B52;
         line-height: 100%;
         font-weight: 500;
+
+        &:last-child {
+          margin-right: 2px;
+        }
 
         &.pagination__btn__active {
           color: #fff;
@@ -172,6 +180,7 @@ $FOOTER_WRAP: 470px;
 
       .pagination__spacing {
         height: 24px;
+        margin-right: 11px;
       }
     }
   }

@@ -101,7 +101,6 @@ aside.aside {
   nav.aside__nav {
     display: flex;
     flex-direction: column;
-    gap: 18px;
 
     @include bp.mobi {
       align-items: center;
@@ -110,6 +109,7 @@ aside.aside {
     .aside__nav-item {
       width: 250px;
       padding: 11px 8px 11px 11px;
+      margin-bottom: 18px;
 
       display: flex;
       flex-direction: row;
@@ -162,9 +162,12 @@ aside.aside {
         display: flex;
         flex-direction: row;
         align-items: center;
-        gap: 14px;
 
         @include bp.asideMin { flex-direction: column; gap: 4px; }
+
+        .nav-item__icon {
+          margin-right: 14px;
+        }
 
         .nav-item__title {
           font-size: 14px;
@@ -182,7 +185,6 @@ aside.aside {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 12px;
 
     @include bp.asideMin { justify-content: center }
 
@@ -190,6 +192,7 @@ aside.aside {
       width: 42px;
       height: 42px;
       border-radius: 50%;
+      margin-right: 12px;
     }
 
     .user__info {

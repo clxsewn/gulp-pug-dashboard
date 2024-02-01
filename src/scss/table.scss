@@ -56,12 +56,12 @@ $bordersColor: #eee;
       @include columnsPaddings(28px, 28px, 28px, 28px, 28px);
     }
 
-    tr::before {
+    tr:before {
       content: "";
       padding-left: var(--pl-wrap);
     }
 
-    tr::after {
+    tr:after {
       content: "";
       padding-right: var(--pr-wrap);
     }
@@ -84,14 +84,14 @@ $bordersColor: #eee;
     tbody {
       color: #292D32;
 
-      tr:first-child::before, tr:first-child::after {
+      tr:first-child:before, tr:first-child:after {
         border-top: 1px solid $bordersColor !important;
       }
 
       tr {
         transition: background-color .05s;
 
-        &::before, &::after {
+        &:before, &:after {
           transition: border-top .05s;
           border-top: transparent;
         }
@@ -99,7 +99,7 @@ $bordersColor: #eee;
         &:hover {
           background-color: $bordersColor;
 
-          &::before, &::after {
+          &:before, &:after {
             border-top: 1px solid $bordersColor;
           }
         }
