@@ -167,6 +167,8 @@ aside.aside {
 
         .nav-item__icon {
           margin-right: 14px;
+
+          @include bp.asideMin { margin: 0}
         }
 
         .nav-item__title {
@@ -175,7 +177,6 @@ aside.aside {
           letter-spacing: -0.14px;
 
           @include bp.asideMin { font-size: 10px; }
-          //@include bp.mobi { display: block }
         }
       }
     }
