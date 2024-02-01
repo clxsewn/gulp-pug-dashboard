@@ -28,8 +28,7 @@ body {
 
 #app {
   height: 100vh;
-  display: grid;
-  grid-template-columns: auto 1fr;
+  display: flex;
   background-color: #FAFBFF;
   overflow: hidden;
 }
@@ -39,6 +38,7 @@ button:hover {
 }
 
 main {
+  width: 100%;
   padding: 41px 20px 40px 71px;
   overflow-y: scroll;
 
@@ -47,8 +47,7 @@ main {
   }
 
   @include bp.mobi {
-    padding-left: 4px;
-    padding-right: 4px;
+    padding: 20px 4px;
   }
 
   .greetings {
@@ -57,8 +56,13 @@ main {
     font-size: 24px;
     font-weight: 500;
 
-    @include bp.maxw(800px) {
+    @include bp.asideMin {
       margin-bottom: 18px;
+      text-align: center;
+    }
+
+    @include bp.mobi {
+      margin-bottom: 12px;
       text-align: center;
     }
   }
