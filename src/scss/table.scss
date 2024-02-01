@@ -45,7 +45,7 @@
 
     @include columnsPaddings(54px, 61px, 47px, 39px, 47px);
 
-    @include bp.maxw(1060px) {
+    @include bp.maxw(1085px) {
       @include columnsPaddings(35px, 35px, 35px, 35px, 35px);
     }
 

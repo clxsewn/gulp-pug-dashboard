@@ -7,10 +7,9 @@
   --pr-wrap: 40px;
   --table-tr-gap: 24px;
 
-  @include bp.asideMin {
+  @include bp.maxw(1130px) {
     --pl-wrap: 20px;
     --pr-wrap: 20px;
-    --table-left-padding: 20px;
   }
 }
 

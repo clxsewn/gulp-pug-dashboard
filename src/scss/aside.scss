@@ -30,13 +30,6 @@
 
 }
 
-.ui-tooltip {
-  display: none !important;
-
-  @include bp.asideMin { display: block !important; }
-  @include bp.mobi { display: none !important; }
-}
-
 aside.aside {
   height: 100vh;
   padding: 36px 28px 76px;
@@ -77,6 +70,8 @@ aside.aside {
       display: flex;
       align-items: center;
       gap: 8px;
+
+      @include bp.asideMin { justify-content: center }
 
       .logo__text {
         height: 39px;
@@ -129,8 +124,9 @@ aside.aside {
       transition: background-color .1s;
 
       @include bp.asideMin {
-        width: fit-content;
-        padding: 11px;
+        width: 100%;
+        padding: 10px 6px;
+        justify-content: center;
       }
 
       @include bp.mobi {
@@ -168,13 +164,15 @@ aside.aside {
         align-items: center;
         gap: 14px;
 
+        @include bp.asideMin { flex-direction: column; gap: 4px; }
+
         .nav-item__title {
           font-size: 14px;
           font-weight: 500;
           letter-spacing: -0.14px;
 
-          @include bp.asideMin { display: none; }
-          @include bp.mobi { display: block }
+          @include bp.asideMin { font-size: 10px; }
+          //@include bp.mobi { display: block }
         }
       }
     }
@@ -185,6 +183,8 @@ aside.aside {
     flex-direction: row;
     align-items: center;
     gap: 12px;
+
+    @include bp.asideMin { justify-content: center }
 
     .user__photo {
       width: 42px;

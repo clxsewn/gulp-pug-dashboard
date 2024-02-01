@@ -1,3 +1,6 @@
+$ASIDE_MINIMIZE_WIDTH: 1331px;
+$MOBI_WIDTH: 600px;
+
 @mixin maxw($windowWidth) {
   @media screen and (max-width: $windowWidth) {
     @content;
@@ -5,13 +8,13 @@
 }
 
 @mixin mobi {
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: $MOBI_WIDTH) {
     @content;
   }
 }
 
 @mixin asideMin {
-  @media screen and (max-width: 1331px) {
+  @media screen and (min-width: $MOBI_WIDTH + 1px) and (max-width: $ASIDE_MINIMIZE_WIDTH) {
     @content;
   }
 }

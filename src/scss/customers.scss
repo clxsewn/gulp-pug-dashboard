@@ -1,5 +1,8 @@
 @use 'mixins.scss' as bp;
 
+$HEADER_WRAP: 510px;
+$FOOTER_WRAP: 470px;
+
 .customers {
   width: fit-content;
   max-width: 100%;
@@ -15,6 +18,7 @@
 
   @include bp.asideMin {
     width: fit-content;
+    margin: 0 auto;
   }
 
   .customers__header {
@@ -27,9 +31,9 @@
     justify-content: space-between;
     align-items: center;
 
-    @include bp.maxw(510px) {
+    @include bp.maxw($HEADER_WRAP) {
       flex-direction: column;
-      gap: 10px;
+      gap: 14px;
     }
 
     .header__text {
@@ -37,7 +41,7 @@
       flex-direction: column;
       gap: 7px;
 
-      @include bp.maxw(510px) {
+      @include bp.maxw($HEADER_WRAP) {
         justify-content: center;
         align-items: center;
       }
@@ -75,6 +79,10 @@
       border-radius: 10px;
       background-color: #F9FBFF;
 
+      @include bp.maxw($HEADER_WRAP) {
+        margin: 0;
+      }
+
       input {
         width: 168px;
 
@@ -103,7 +111,7 @@
     justify-content: space-between;
     align-items: center;
 
-    @include bp.maxw(470px) {
+    @include bp.maxw($FOOTER_WRAP) {
       gap: 20px;
       flex-direction: column;
     }
@@ -124,7 +132,7 @@
         .customers__caption__short { display: block; }
       }
 
-      @include bp.maxw(470px) {
+      @include bp.maxw($FOOTER_WRAP) {
         .customers__caption__full { display: block; }
         .customers__caption__short { display: none; }
       }
