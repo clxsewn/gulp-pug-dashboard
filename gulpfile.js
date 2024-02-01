@@ -31,7 +31,11 @@ const paths = {
         dest: 'dist/',
     },
     images: {
-        src: "src/assets/**/*.{png,jpg,svg,webp,gif}",
+        src: "src/assets/*.{png,svg,jpg}",
+        dest: 'dist/'
+    },
+    favicon: {
+        src: "src/assets/favicon/*.{png,ico,webmanifest}",
         dest: 'dist/'
     }
 }
@@ -75,6 +79,11 @@ function images() {
         .pipe(gulp.dest(paths.images.dest))
 }
 
+function favicon() {
+    return gulp.src(paths.favicon.src)
+        .pipe(gulp.dest(paths.favicon.dest))
+}
+
 function watch() {
     browsersync.init({
         server: {
@@ -88,8 +97,8 @@ function watch() {
     gulp.watch(paths.images.src, images)
 }
 
-const dev = gulp.series(clean, pug, images, gulp.parallel(styles, scripts), watch)
-const build = gulp.series(clean, pug, images, gulp.parallel(styles, scripts))
+const dev = gulp.series(clean, pug, images, favicon, gulp.parallel(styles, scripts), watch)
+const build = gulp.series(clean, pug, images, favicon, gulp.parallel(styles, scripts))
 
-export { clean, pug, styles, scripts, images, watch, build, dev }
+export { clean, pug, styles, scripts, images, watch, favicon, build, dev }
 export default dev
