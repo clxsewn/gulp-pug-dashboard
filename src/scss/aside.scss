@@ -138,7 +138,7 @@ aside.aside {
         padding: 11px 8px 11px 11px;
       }
 
-      & > svg {
+      .nav-item__arrow {
         @include bp.asideMin { display: none; }
         @include bp.mobi { display: block }
       }
@@ -151,11 +151,13 @@ aside.aside {
         color: #fff;
         background-color: #5932EA;
 
-        svg path[fill] {
+        .nav-item__arrow path[fill],
+        .nav-item__icon path[fill] {
           fill: #fff;
         }
 
-        svg path[stroke] {
+        .nav-item__arrow path[stroke],
+        .nav-item__icon path[stroke] {
           stroke: #fff;
         }
       }
