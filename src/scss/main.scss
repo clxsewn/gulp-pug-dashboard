@@ -40,7 +40,7 @@ button:hover {
 main {
   width: 100%;
   padding: 41px 20px 40px 71px;
-  overflow-y: scroll;
+  overflow-y: auto;
 
   @include bp.maxw(1383px) {
     padding-left: 20px;
